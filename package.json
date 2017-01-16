@@ -1,0 +1,17 @@
+{
+  "name": "nuxt-demo",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "yxy <yxy43445@ly.com>",
+  "private": true,
+  "dependencies": {
+    "nuxt": "latest",
+    "vuex": "^2.1.1"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  }
+}
