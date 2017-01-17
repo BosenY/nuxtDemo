@@ -4,6 +4,7 @@
     <h1 class="title">
       This page is loaded from the {{ name }}
     </h1>
+    <el-button type="primary" @click="increment">{{ counter }}</el-button><br>
     <h2 class="info" v-if="name === 'client'">
       Please refresh the page
     </h2>
@@ -13,6 +14,11 @@
   </section>
 </template>
 <script>
+    import {
+        mapState,
+        mapGetters,
+        mapActions
+    } from 'vuex'
     export default {
         data({
             req
@@ -25,6 +31,16 @@
             return {
                 title: `About Page (${this.name}-side)`
             }
+        },
+        computed: {
+            ...mapGetters([
+                'counter'
+            ])
+        },
+        methods: {
+            ...mapActions([
+                'increment'
+            ])
         }
     }
 </script>

@@ -5,6 +5,7 @@
   "author": "yxy <yxy43445@ly.com>",
   "private": true,
   "dependencies": {
+    "element-ui": "^1.1.4",
     "nuxt": "latest",
     "vuex": "^2.1.1"
   },

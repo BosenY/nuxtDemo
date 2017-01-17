@@ -4,7 +4,7 @@
     <h1 class="title">
       Universal Vue.js Application Framework
     </h1>
-    <button @click="increment">{{ counter }}</button><br>
+    <el-button type="primary" @click="increment">{{ counter }}</el-button><br>
     <nuxt-link class="button" to="/about">
       About page
     </nuxt-link>
@@ -18,26 +18,36 @@
     .title {
         margin: 50px 0;
     }
-
+    
     .button {
         margin-top: 50px;
         margin-left: 20px;
     }
 </style>
 <script>
-import { mapState } from 'vuex'
+    import {
+        mapState,
+        mapGetters,
+        mapActions
+    } from 'vuex'
 
-export default {
-  // fetch(context) is called by the server-side
-  // and nuxt before instantiating the component
-  fetch ({ store }) {
-    store.commit('increment')
-  },
-  computed: mapState([
-    'counter'
-  ]),
-  methods: {
-    increment () { this.$store.commit('increment') }
-  }
-}
+    export default {
+        // fetch(context) is called by the server-side
+        // and nuxt before instantiating the component
+        // fetch({
+        //     store
+        // }) {
+        //     store.commit('increment')
+        // },
+         computed: {
+            ...mapGetters([
+              'counter'
+          ])
+        },
+        methods: {
+            ...mapActions([
+              'increment'
+            ])
+        }
+    }
 </script>

@@ -16,7 +16,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~assets/css/main.css'],
+  css: ['~assets/css/main.css','element-ui/lib/theme-default/index.css'],
   /*
   ** Customize the progress-bar color
   */
@@ -24,6 +24,12 @@ module.exports = {
   loading: {
     color: 'blue',
     height: '5px'
-  }
+  },
+  build: {
+    vendor: ['element-ui']
+  },
+  plugins: [
+    '~plugins/element-ui.js'
+  ]
 
 }

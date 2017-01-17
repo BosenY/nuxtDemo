@@ -1,7 +1,15 @@
 <template>
 <div class="container">
+    <div style="padding: 50px;">
+      <el-carousel :interval="4000" type="card" height="400px">
+    <el-carousel-item v-for="item in 6">
+      <h3>{{ item }}</h3>
+    </el-carousel-item>
+  </el-carousel>
+  </div>
   <p>这里是一个子页面</p>
   <p>{{name}}</p>
+  <el-button type="primary" @click="$store.commit('increment')">{{ $store.state.counter }}</el-button><br>
   <nuxt-link class="button" to="/">
     Home page
   </nuxt-link>
@@ -9,25 +17,46 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+    import {
+        mapState
+    } from 'vuex'
     export default {
-        data({req}) {
+        data({
+            req
+        }) {
             return {
                 name: req ? 'server' : 'client'
             }
         },
-          // fetch(context) is called by the server-side
+        // fetch(context) is called by the server-side
         // and nuxt before instantiating the component
 
     }
 </script>
 
 <style scoped>
+    .el-carousel__item h3 {
+        color: #475669;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 200px;
+        margin: 0;
+    }
+    
+    .el-carousel__item:nth-child(2n) {
+        background-color: #99a9bf;
+    }
+    
+    .el-carousel__item:nth-child(2n+1) {
+        background-color: #d3dce6;
+    }
+    
     .button {
         margin-top: 50px;
     }
     
     .container {
-        margin: 20px;
+        /*margin: 20px;*/
+        /*padding: 50px;*/
     }
 </style>
